@@ -1,0 +1,26 @@
+<div  ng-controller="Read-Controller as vm" data-ng-init="vm.init()">
+  <div class="row text-center read-background">
+    <div class="col-sm-6 col-sm-offset-3 text-center main-outer-div">
+      <div class="main-inner-div" style="padding: 50px">
+        <a ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
+        <big> <big> <big> {{vm.book}} {{vm.chapter}} </big> </big> </big>
+        <a ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
+
+        <p ng-bind-html="vm.passage" style="text-align: justify;">
+        </p>
+
+        <a ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
+        <a ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
+
+      </div>
+    </div>
+  </div>
+<!--
+  <div class="container-fluid bg-lightgray text-center">
+    <div class="col-sm-6 col-sm-offset-3" style="padding-top: 15px">
+      <big> <big> <big> Contact </big> </big> </big>
+      <p style="padding-top: 15px; text-align: justify">
+      </p>
+    </div>
+  </div> -->
+</div>

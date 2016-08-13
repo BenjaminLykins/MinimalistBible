@@ -1,0 +1,25 @@
+<div ng-controller="Main-Controller as vm">
+  <div class="row main-background">
+    <div class="col-sm-12 text-center main-outer-div">
+      <div class="main-inner-div">
+        <big> <big> <big> The Minimalist Bible </big> </big> </big>
+        <img class="main-image" src="http://megaicons.net/static/img/icons_sizes/8/178/512/easter-holy-bible-icon.png" class="img-responsive img-rounded" alt="the bible">
+        <p style="padding-top: 15px"> No adds &middot; No passwords &middot; No payments &middot; No subscriptions &middot; No free 30-day trial
+        </p>
+        <p> Just the Bible </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- First Container -->
+
+  <div class="container-fluid bg-lightgray text-center shadow-top">
+    <div class="col-sm-8 col-sm-offset-2" style="padding-top: 15px">
+    <h3> &middot; Old Testament &middot; </h3>
+    <p> &middot; <span ng-repeat="book in vm.oldTest"> <a href="#/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
+    <h3> &middot; New Testament &middot; </h3>
+    <p> &middot; <span ng-repeat="book in vm.newTest"> <a href="#/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
+    </div>
+  </div>
+
+</div>
