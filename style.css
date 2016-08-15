@@ -43,26 +43,33 @@ p {font-size: 16px;}
     color: #1abc9c !important;
 }
 .main-background {
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: #D8D8D8; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #D8D8D8, #787878); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #D8D8D8, #787878); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #D8D8D8, #787878); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #D8D8D8, #787878  ); /* Standard syntax */
 }
 .about-background {
   background: #B8B8B8 ; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(left top, #606060, #909090); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #606060, #909090); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #606060, #909090); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #606060, #909090); /* Standard syntax */
 }
 .read-background {
   background: #B8B8B8 ; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: -webkit-linear-gradient(left top, #C8C8C8 , #FFFFFF); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #C8C8C8 , #FFFFFF); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #C8C8C8 , #FFFFFF); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #C8C8C8 , #FFFFFF ); /* Standard syntax */
   color: #282828 ;
+}
+.error-background {
+  background: #B8B8B8 ; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #606060, #909090); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #606060, #909090); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #606060, #909090); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #606060, #909090); /* Standard syntax */
 }
 .main-outer-div {
   height: 600px;

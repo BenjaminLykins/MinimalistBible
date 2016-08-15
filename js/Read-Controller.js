@@ -13,8 +13,16 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     console.log(vm.book);
     if(vm.book === 'auto'){
       var args = $cookies.getObject('cookie');
-      vm.book = args.book;
-      vm.chapter = args.chapter;
+      console.log(args);
+      if(args != undefined){
+        vm.book = args.book;
+        vm.chapter = args.chapter;
+      }
+      else{
+        vm.book = 'Genisis';
+        vm.chapter = 1;
+      }
+
       $location.path('/read/'+vm.book+'/'+vm.chapter);
     }
     else{

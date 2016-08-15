@@ -24,5 +24,8 @@ app.config(function($routeProvider) {
         .when('/read/:book/:chapter', {
             templateUrl : 'pages/read.html',
             controller  : 'Read-Controller'
+        })
+        .otherwise({
+          templateUrl: 'pages/errorpage.html'
         });
 });
