@@ -1,12 +1,54 @@
-<div  ng-controller="Read-Controller as vm" data-ng-init="vm.init()">
-  <div class="row text-center read-background">
-    <div class="col-sm-6 col-sm-offset-3 text-center main-outer-div">
+<div ng-controller="Read-Controller as vm" data-ng-init="vm.init()">
+
+  <!-- Settings Icon -->
+
+  <!-- Read main area -->
+  <div ng-style="vm.background" class="row text-center read-background">
+    <!-- Settings -->
+    <div align="right">
+      <div class="btn-group" ng-show="vm.settingsExpanded">
+        <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Text: {{vm.textSize}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="background: transparent">
+          <li><a ng-click="vm.textSize='Large'; vm.p={'font-size':'34px'};">Large</a></li>
+          <li><a ng-click="vm.textSize='Medium'; vm.p={'font-size':'16px'};">Medium</a></li>
+          <li><a ng-click="vm.textSize='Small'; vm.p={'font-size':'8px'};">Small</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group" ng-show="vm.settingsExpanded">
+        <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Background: {{vm.backgroundColor}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="background: transparent">
+          <li><a ng-click="vm.backgroundColor='Sepia'";>Sepia</a></li>
+          <li><a ng-click="vm.backgroundColor='Gray';">Gray</a></li>
+          <li><a ng-click="vm.backgroundColor='White';">White</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group" ng-show="vm.settingsExpanded">
+        <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Version: {{vm.version}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" style="background: transparent">
+          <li><a ng-click="vm.backgroundColor='Sepia'";>ESV</a></li>
+          <li><a ng-click="vm.backgroundColor='Gray Scale';">King James</a></li>
+          <li><a ng-click="vm.backgroundColor='White';">NET</a></li>
+        </ul>
+      </div>
+
+      <a class="glyphicon glyphicon-cog" ng-click="vm.settingsExpanded = !vm.settingsExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center main-outer-div">
       <div class="main-inner-div" style="padding: 50px">
         <a ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
-        <big> <big> <big> {{vm.book}} {{vm.chapter}} </big> </big> </big>
+        <big ng-style="vm.big">{{vm.book}} {{vm.chapter}}</big>
         <a ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
 
-        <p ng-bind-html="vm.passage" style="text-align: justify;">
+        <p ng-bind-html="vm.passage" style="text-align: justify;" ng-style="vm.p">
         </p>
 
         <a ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
@@ -15,12 +57,4 @@
       </div>
     </div>
   </div>
-<!--
-  <div class="container-fluid bg-lightgray text-center">
-    <div class="col-sm-6 col-sm-offset-3" style="padding-top: 15px">
-      <big> <big> <big> Contact </big> </big> </big>
-      <p style="padding-top: 15px; text-align: justify">
-      </p>
-    </div>
-  </div> -->
 </div>

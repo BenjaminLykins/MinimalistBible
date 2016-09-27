@@ -6,10 +6,26 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.prev = prev;
   vm.passage = $sce.trustAsHtml("loading...");
 
-
   function init(){
+    vm.background = {
+      'background': 'linear-gradient(to bottom right, #C8C8C8 , #FFFFFF )',
+      'color': '#282828',
+    };
+    vm.p = {
+      'font-size': '16px'
+    };
+    vm.big = {
+      'font-size': '50px'
+    };
+
+    vm.settingsExpanded = 0;
+    vm.backgroundColor = 'Gray';
+    vm.textSize = 'Medium';
+    vm.version = 'NET';
+
     vm.book = $routeParams.book;
     vm.book.replace("%22", " ");
+
     console.log(vm.book);
     if(vm.book === 'auto'){
       var args = $cookies.getObject('cookie');

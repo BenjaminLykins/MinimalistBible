@@ -1,12 +1,7 @@
 app.factory('verse', ['$http', '$q', function($http, $q) {
- var server;
  return {
    getData: getData,
  };
-
- function myfunction(data){
-   console.log(data.found);
- }
 
  function getData(book, chap){
    var defer = $q.defer();
