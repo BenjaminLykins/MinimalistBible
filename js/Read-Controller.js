@@ -57,7 +57,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   }
 
   window.myfunction = function(data){
-    console.log(data);
+    //console.log(data);
     //If the chapter doesn't exist
     if(data[0].chapter != vm.chapter){
       $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) + 1]) +'/'+'1');
@@ -67,7 +67,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     for(var i = 0; i < data.length; i++){
       tempHtml = tempHtml.concat('<b>' + data[i].verse + '</b>' + ' ' + data[i].text + ' ');
     }
-    console.log(tempHtml);
+    //console.log(tempHtml);
     tempHtml = tempHtml.replace('&copy;NET', "");
     vm.passage = $sce.trustAsHtml(tempHtml);
   }
@@ -94,7 +94,6 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     }
   }
   function prev(){
-    console.log(vm.chapter);
     if(vm.chapter === 1){
       $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) - 1]) +'/'+books.chapterList[books.bookList.indexOf(vm.book) - 1]);
     }
