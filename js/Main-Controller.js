@@ -2,6 +2,10 @@ app.controller('Main-Controller', function($routeParams, verse) {
    var vm = this;
    vm.print = print;
 
+   vm.init = function(){
+     document.title = "The Minimalist Bible";
+   }
+
    function print(){
      console.log($routeParams.param);
    }

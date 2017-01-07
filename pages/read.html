@@ -4,31 +4,32 @@
 
   <!-- Read main area -->
   <div ng-style="vm.background" class="row text-center read-background">
-    <!-- Settings -->
+    <!-- SETTINGS -->
     <div align="right">
       <div class="btn-group" ng-show="vm.settingsExpanded">
-        <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" ng-style="vm.optionButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Text: {{vm.textSize}} <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" style="background: transparent">
-          <li><a ng-click="vm.textSize='Large'; vm.p={'font-size':'34px'};">Large</a></li>
+        <ul class="dropdown-menu" ng-style="vm.optionButton">
+          <li><a style="color: inherit" ng-click="vm.textSize='Large'; vm.p={'font-size':'34px'};">Large</a></li>
           <li><a ng-click="vm.textSize='Medium'; vm.p={'font-size':'16px'};">Medium</a></li>
           <li><a ng-click="vm.textSize='Small'; vm.p={'font-size':'8px'};">Small</a></li>
         </ul>
       </div>
 
       <div class="btn-group" ng-show="vm.settingsExpanded">
-        <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" ng-style="vm.optionButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Background: {{vm.backgroundColor}} <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" style="background: transparent">
-          <li><a ng-click="vm.backgroundColor='Sepia'";>Sepia</a></li>
-          <li><a ng-click="vm.backgroundColor='Gray';">Gray</a></li>
-          <li><a ng-click="vm.backgroundColor='White';">White</a></li>
+        <ul class="dropdown-menu" ng-style="vm.optionButton">
+          <li><a ng-click="vm.backgroundColor='Sepia'; vm.background={'background': '#fcf1d7', 'color':'#614b30'}; vm.optionButton.color=vm.background.color";>Sepia</a></li>
+          <li><a ng-click="vm.backgroundColor='Gray'; vm.background={'background': '#d8d8d8', 'color':'black'}; vm.optionButton.color=vm.background.color">Gray</a></li>
+          <li><a ng-click="vm.backgroundColor='White'; vm.background={'background': '#ffffff', 'color':'#000000'}; vm.optionButton.color=vm.background.color">White</a></li>
+          <li><a ng-click="vm.backgroundColor='White'; vm.background={'background': '#000000', 'color':'#ffffff'}; vm.optionButton.color=vm.background.color">Black</a></li>
         </ul>
       </div>
 
-      <div class="btn-group" ng-show="vm.settingsExpanded">
+      <!-- <div class="btn-group" ng-show="vm.settingsExpanded">
         <button type="button" style="background: transparent" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Version: {{vm.version}} <span class="caret"></span>
         </button>
@@ -37,10 +38,11 @@
           <li><a ng-click="vm.backgroundColor='Gray Scale';">King James</a></li>
           <li><a ng-click="vm.backgroundColor='White';">NET</a></li>
         </ul>
-      </div>
+      </div> -->
 
       <a class="glyphicon glyphicon-cog" ng-click="vm.settingsExpanded = !vm.settingsExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
     </div>
+    <!-- END SETTINGS -->
 
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center main-outer-div">
       <div class="main-inner-div" style="padding: 50px">

@@ -7,8 +7,10 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.passage = $sce.trustAsHtml("loading...");
 
   function init(){
+
+    //Used for ng-style
     vm.background = {
-      'background': 'linear-gradient(to bottom right, #C8C8C8 , #FFFFFF )',
+      'background': '#d8d8d8',
       'color': '#282828',
     };
     vm.p = {
@@ -17,16 +19,22 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.big = {
       'font-size': '50px'
     };
+    vm.optionButton = {
+      'background': 'transparent',
+      'color': 'black'
+    }
+    //End ng-style
 
     vm.settingsExpanded = 0;
     vm.backgroundColor = 'Gray';
     vm.textSize = 'Medium';
     vm.version = 'NET';
 
+    //Gets and formats the book from the url
     vm.book = $routeParams.book;
     vm.book.replace("%22", " ");
 
-    console.log(vm.book);
+    //console.log(vm.book);
     if(vm.book === 'auto'){
       var args = $cookies.getObject('cookie');
       console.log(args);
@@ -59,7 +67,8 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     for(var i = 0; i < data.length; i++){
       tempHtml = tempHtml.concat('<b>' + data[i].verse + '</b>' + ' ' + data[i].text + ' ');
     }
-    //console.log(tempHtml);
+    console.log(tempHtml);
+    tempHtml = tempHtml.replace('&copy;NET', "");
     vm.passage = $sce.trustAsHtml(tempHtml);
   }
 
@@ -77,12 +86,17 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   }
 
   function next(){
-    $location.path('/read/'+vm.book+'/'+(vm.chapter + 1));
+    if( books.chapterList[books.bookList.indexOf(vm.book)] > vm.chapter ){
+      $location.path('/read/'+vm.book+'/'+(vm.chapter + 1));
+    }
+    else{
+      $location.path('/read/'+(books.bookList[books.bookList.indexOf(vm.book) + 1])+'/'+'1');
+    }
   }
   function prev(){
     console.log(vm.chapter);
     if(vm.chapter === 1){
-      $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) - 1]) +'/'+'1');
+      $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) - 1]) +'/'+books.chapterList[books.bookList.indexOf(vm.book) - 1]);
     }
     else
       $location.path('/read/'+vm.book+'/'+(vm.chapter - 1));
