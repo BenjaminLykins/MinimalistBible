@@ -56,7 +56,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
         vm.chapter = args.chapter;
       }
       else{
-        vm.book = 'Genisis';
+        vm.book = 'Genesis';
         vm.chapter = 1;
       }
 
