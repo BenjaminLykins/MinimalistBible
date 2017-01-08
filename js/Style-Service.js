@@ -1,15 +1,21 @@
-app.factory('style', [function($) {
- return {
-   sepiaBackground: '#F6EFDD',
-   grayBackground: 'linear-gradient(to bottom right, #C8C8C8 , #FFFFFF )',
-   blackBackground: 'black',
+app.factory('style', [function() {
 
-   largeFont: '34px',
-   mediumFont: '16px',
-   smallFont: '12px',
+  var background = {
+    name: 'Gray',
+    background: '#d8d8d8',
+    color: '#282828',
+  };
 
-   lightText: 'white',
-   darkText: 'black',
+  function changeBackground(newBackground){
+    background = newBackground;
+  }
 
- };
+  function getBackground(){
+    return background;
+  }
+
+  return {
+    changeBackground: changeBackground,
+    getBackground: getBackground,
+  };
 }]);

@@ -44,13 +44,13 @@
 
       <div class="btn-group" ng-show="vm.settingsExpanded">
         <button type="button" ng-style="vm.optionButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Background: {{vm.backgroundColor}} <span class="caret"></span>
+          Background: {{vm.background.name}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" ng-style="vm.optionButton">
-          <li><a ng-click="vm.backgroundColor='Sepia'; vm.background={'background': '#fcf1d7', 'color':'#614b30'}; vm.optionButton.color=vm.background.color";>Sepia</a></li>
-          <li><a ng-click="vm.backgroundColor='Gray'; vm.background={'background': '#d8d8d8', 'color':'black'}; vm.optionButton.color=vm.background.color">Gray</a></li>
-          <li><a ng-click="vm.backgroundColor='White'; vm.background={'background': '#ffffff', 'color':'#000000'}; vm.optionButton.color=vm.background.color">White</a></li>
-          <li><a ng-click="vm.backgroundColor='White'; vm.background={'background': '#000000', 'color':'#ffffff'}; vm.optionButton.color=vm.background.color">Black</a></li>
+          <li><a ng-click="vm.changeBackground('Sepia', '#fcf1d7', '#614b30')";>Sepia</a></li>
+          <li><a ng-click="vm.changeBackground('Gray', '#d8d8d8', 'black')">Gray</a></li>
+          <li><a ng-click="vm.changeBackground('White', '#ffffff', '#000000')">White</a></li>
+          <li><a ng-click="vm.changeBackground('Black', '#000000', '#ffffff')">Black</a></li>
         </ul>
       </div>
 

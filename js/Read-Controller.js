@@ -1,18 +1,20 @@
-app.controller('Read-Controller', function($routeParams, verse, books, $sce, $location, $http, $cookies, $cookieStore){
+app.controller('Read-Controller', function($routeParams, verse, books, $sce, $location, $http, $cookies, $cookieStore, style){
   var vm = this;
   vm.getVerse = getVerse;
   vm.init = init;
   vm.next = next;
   vm.prev = prev;
+  vm.changeBackground = changeBackground;
   vm.passage = $sce.trustAsHtml("loading...");
 
   function init(){
 
     //Used for ng-style
-    vm.background = {
-      'background': '#d8d8d8',
-      'color': '#282828',
-    };
+    // vm.background = {
+    //   'background': '#d8d8d8',
+    //   'color': '#282828',
+    // };
+    vm.background = style.getBackground();
     vm.p = {
       'font-size': '16px'
     };
@@ -21,12 +23,11 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     };
     vm.optionButton = {
       'background': 'transparent',
-      'color': 'black'
+      'color': vm.background.color,
     }
     //End ng-style
     vm.searchExpanded = 0;
     vm.settingsExpanded = 0;
-    vm.backgroundColor = 'Gray';
     vm.textSize = 'Medium';
     vm.version = 'NET';
 
@@ -118,6 +119,17 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     }
     else
       $location.path('/read/'+vm.book+'/'+(vm.chapter - 1));
+  }
+
+  function changeBackground(name, background, color){
+    vm.background = {
+      'name': name,
+      'background': background,
+      'color': color,
+    };
+    vm.optionButton.color = vm.background.color;
+
+    style.changeBackground(vm.background);
   }
 
 });
