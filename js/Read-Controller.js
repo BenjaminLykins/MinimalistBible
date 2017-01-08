@@ -24,11 +24,30 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       'color': 'black'
     }
     //End ng-style
-
+    vm.searchExpanded = 0;
     vm.settingsExpanded = 0;
     vm.backgroundColor = 'Gray';
     vm.textSize = 'Medium';
     vm.version = 'NET';
+
+    //START UI-SELECT BOOK SEARCH
+    vm.bookList = [];
+    for(var i = 0; i < books.bookList.length; i++){
+      vm.bookList.push({'name': books.bookList[i]});
+    }
+    vm.bookSelected = "";
+    vm.chapterList = []
+    vm.chapterSelected = "";
+    vm.countChapters = function(){
+      console.log(vm.bookSelected.name);
+      for(var i = 1; i < books.chapterList[books.bookList.indexOf(vm.bookSelected.name)]; i++){
+        vm.chapterList.push({value: i});
+      }
+    }
+    vm.changeChapters = function(){
+      console.log('/read/'+vm.bookSelected.name+'/'+vm.chapterSelected);
+      $location.path('/read/'+vm.bookSelected.name+'/'+vm.chapterSelected.value);
+    }
 
     //Gets and formats the book from the url
     vm.book = $routeParams.book;

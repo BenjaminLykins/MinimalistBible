@@ -1,0 +1,19 @@
+{
+  "name": "minimalistbible",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenjaminLykins/MinimalistBible.git"
+  },
+  "author": "Benjamin Lykins <benjaminstedman@gmail.com> (https://benjaminlykins.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenjaminLykins/MinimalistBible/issues"
+  },
+  "homepage": "https://github.com/BenjaminLykins/MinimalistBible#readme"
+}
