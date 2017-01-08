@@ -5,19 +5,13 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.next = next;
   vm.prev = prev;
   vm.changeBackground = changeBackground;
+  vm.changeTextSize = changeTextSize
   vm.passage = $sce.trustAsHtml("loading...");
 
   function init(){
 
-    //Used for ng-style
-    // vm.background = {
-    //   'background': '#d8d8d8',
-    //   'color': '#282828',
-    // };
     vm.background = style.getBackground();
-    vm.p = {
-      'font-size': '16px'
-    };
+    vm.p = style.getP();
     vm.big = {
       'font-size': '50px'
     };
@@ -28,7 +22,6 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     //End ng-style
     vm.searchExpanded = 0;
     vm.settingsExpanded = 0;
-    vm.textSize = 'Medium';
     vm.version = 'NET';
 
     //START UI-SELECT BOOK SEARCH
@@ -128,8 +121,15 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       'color': color,
     };
     vm.optionButton.color = vm.background.color;
-
     style.changeBackground(vm.background);
+  }
+
+  function changeTextSize(newName, newSize){
+    vm.p = {
+      'name': newName,
+      'font-size': newSize
+    }
+    style.setP(vm.p);
   }
 
 });

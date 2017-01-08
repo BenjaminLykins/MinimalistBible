@@ -6,6 +6,11 @@ app.factory('style', [function() {
     color: '#282828',
   };
 
+  var p = {
+    'name': 'Medium',
+    'font-size': '16px',
+  };
+
   function changeBackground(newBackground){
     background = newBackground;
   }
@@ -14,8 +19,18 @@ app.factory('style', [function() {
     return background;
   }
 
+  function setP(newP){
+    p = newP;
+  }
+
+  function getP(){
+    return p;
+  }
+
   return {
     changeBackground: changeBackground,
     getBackground: getBackground,
+    setP: setP,
+    getP: getP
   };
 }]);

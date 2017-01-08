@@ -33,12 +33,12 @@
     <div align="right" class-"col-sm-6">
       <div class="btn-group" ng-show="vm.settingsExpanded">
         <button type="button" ng-style="vm.optionButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Text: {{vm.textSize}} <span class="caret"></span>
+          Text: {{vm.p.name}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" ng-style="vm.optionButton">
-          <li><a style="color: inherit" ng-click="vm.textSize='Large'; vm.p={'font-size':'34px'};">Large</a></li>
-          <li><a ng-click="vm.textSize='Medium'; vm.p={'font-size':'16px'};">Medium</a></li>
-          <li><a ng-click="vm.textSize='Small'; vm.p={'font-size':'8px'};">Small</a></li>
+          <li><a style="color: inherit" ng-click="vm.textSize='Large'; vm.changeTextSize('Large','34px')">Large</a></li>
+          <li><a ng-click="vm.textSize='Medium';vm.changeTextSize('Medium','16px')">Medium</a></li>
+          <li><a ng-click="vm.textSize='Small'; vm.changeTextSize('Small','8px')">Small</a></li>
         </ul>
       </div>
 
