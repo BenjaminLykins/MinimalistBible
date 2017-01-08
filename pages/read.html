@@ -1,11 +1,36 @@
 <div ng-controller="Read-Controller as vm" data-ng-init="vm.init()">
 
-  <!-- Settings Icon -->
-
   <!-- Read main area -->
   <div ng-style="vm.background" class="row text-center read-background">
+
+    <div class="row">
+    <div align="left" class="col-sm-6">
+      <!-- Possibily replace with mouseover later -->
+
+      <a class="glyphicon glyphicon-search" ng-click="vm.searchExpanded = !vm.searchExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+
+      <ui-select on-select="vm.countChapters()" ng-change="vm.countChapters" ng-show="vm.searchExpanded" style="display: inline-block; width: 175px !important; top: 6px" ng-model="vm.bookSelected">
+          <ui-select-match placeholder="book" style="width: 175px !important">
+              <span ng-bind="$select.selected.name"></span>
+          </ui-select-match>
+          <ui-select-choices style="width: 175px !important" repeat="book in (vm.bookList | filter: $select.search)">
+              <span ng-bind="book.name"></span>
+          </ui-select-choices>
+      </ui-select>
+
+      <ui-select on-select="vm.changeChapters()" ng-show="vm.searchExpanded" style="display: inline-block; width: 65px !important; top: 6px" ng-model="vm.chapterSelected">
+          <ui-select-match placeholder="ch." style="width: inherit">
+              <span ng-bind="$select.selected.value"></span>
+          </ui-select-match>
+          <ui-select-choices style="width: inherit" repeat="chapter in (vm.chapterList | filter: $select.search)">
+              <span ng-bind="chapter.value"></span>
+          </ui-select-choices>
+      </ui-select>
+
+    </div>
+
     <!-- SETTINGS -->
-    <div align="right">
+    <div align="right" class-"col-sm-6">
       <div class="btn-group" ng-show="vm.settingsExpanded">
         <button type="button" ng-style="vm.optionButton" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Text: {{vm.textSize}} <span class="caret"></span>
@@ -40,9 +65,11 @@
         </ul>
       </div> -->
 
+      <!-- Settings Icon -->
       <a class="glyphicon glyphicon-cog" ng-click="vm.settingsExpanded = !vm.settingsExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
     </div>
     <!-- END SETTINGS -->
+  </div>
 
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center main-outer-div">
       <div class="main-inner-div" style="padding: 50px">
