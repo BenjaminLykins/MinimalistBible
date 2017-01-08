@@ -36,9 +36,9 @@
           Text: {{vm.p.name}} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" ng-style="vm.optionButton">
-          <li><a ng-click="vm.textSize='Small'; vm.changeTextSize('Small','8px')">Small</a></li>
+          <li><a ng-click="vm.textSize='Small'; vm.changeTextSize('Small','12px')">Small</a></li>
           <li><a ng-click="vm.textSize='Medium';vm.changeTextSize('Medium','16px')">Medium</a></li>
-          <li><a style="color: inherit" ng-click="vm.textSize='Large'; vm.changeTextSize('Large','34px')">Large</a></li>
+          <li><a style="color: inherit" ng-click="vm.textSize='Large'; vm.changeTextSize('Large','30px')">Large</a></li>
         </ul>
       </div>
 
@@ -77,7 +77,7 @@
         <big ng-style="vm.big">{{vm.book}} {{vm.chapter}}</big>
         <a ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
 
-        <p ng-bind-html="vm.passage" style="text-align: justify;" ng-style="vm.p">
+        <p class="passage-text" ng-bind-html="vm.passage" style="text-align: justify;" ng-style="vm.p">
         </p>
 
         <a ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>

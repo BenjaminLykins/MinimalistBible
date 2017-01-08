@@ -8,6 +8,11 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.changeTextSize = changeTextSize
   vm.passage = $sce.trustAsHtml("loading...");
 
+  String.prototype.replaceAll = function(str1, str2, ignore)
+  {
+    return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+  }
+
   function init(){
 
     vm.background = style.getBackground();
@@ -80,8 +85,13 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     for(var i = 0; i < data.length; i++){
       tempHtml = tempHtml.concat('<b>' + data[i].verse + '</b>' + ' ' + data[i].text + ' ');
     }
-    //console.log(tempHtml);
+
+    //Format the html
     tempHtml = tempHtml.replace('&copy;NET', "");
+    tempHtml = tempHtml.replaceAll('<b>', '<p>');
+    tempHtml = tempHtml.replaceAll('</b>', '</p>');
+    tempHtml = tempHtml.replaceAll('class="bodytext"', '');
+
     vm.passage = $sce.trustAsHtml(tempHtml);
   }
 
@@ -114,6 +124,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       $location.path('/read/'+vm.book+'/'+(vm.chapter - 1));
   }
 
+  //Change options
   function changeBackground(name, background, color){
     vm.background = {
       'name': name,
@@ -123,7 +134,6 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.optionButton.color = vm.background.color;
     style.changeBackground(vm.background);
   }
-
   function changeTextSize(newName, newSize){
     vm.p = {
       'name': newName,
