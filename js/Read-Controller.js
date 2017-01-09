@@ -92,6 +92,23 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     tempHtml = tempHtml.replaceAll('</b>', '</p>');
     tempHtml = tempHtml.replaceAll('class="bodytext"', '');
 
+    //WILL REPLACE PARAGRAPHS AROUND VERSE NUMBERS IF NEEDED
+    var re = new RegExp(/<p>(\d*)<\/p>/g);
+    var match = re.exec(tempHtml);
+    // var i = 0;
+    // while(true){
+    //   match = re.exec(tempHtml);
+    //   if(match == null){
+    //     break;
+    //   }
+    //   tempHtml = tempHtml.replace(re, '$1');
+    //   i++;
+    //   if(i > 99){
+    //     console.log("didn't work");
+    //     break;
+    //   }
+    // }
+
     vm.passage = $sce.trustAsHtml(tempHtml);
   }
 
