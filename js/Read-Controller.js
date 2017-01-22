@@ -38,8 +38,9 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.chapterList = []
     vm.chapterSelected = "";
     vm.countChapters = function(){
+      vm.chapterList = [];
       console.log(vm.bookSelected.name);
-      for(var i = 1; i < books.chapterList[books.bookList.indexOf(vm.bookSelected.name)]; i++){
+      for(var i = 1; i <= books.chapterList[books.bookList.indexOf(vm.bookSelected.name)]; i++){
         vm.chapterList.push({value: i});
       }
     }
