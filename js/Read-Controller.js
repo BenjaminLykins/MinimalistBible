@@ -14,7 +14,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   }
 
   function init(){
-
+    //Start NG-Style setup
     vm.background = style.getBackground();
     vm.p = style.getP();
     vm.big = {
@@ -25,6 +25,8 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       'color': vm.background.color,
     }
     //End ng-style
+
+    //Options variables
     vm.searchExpanded = 0;
     vm.settingsExpanded = 0;
     vm.version = 'NET';
@@ -35,8 +37,9 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       vm.bookList.push({'name': books.bookList[i]});
     }
     vm.bookSelected = "";
-    vm.chapterList = []
+    vm.chapterList = [];
     vm.chapterSelected = "";
+    //The on-change function called after selecting a book
     vm.countChapters = function(){
       vm.chapterList = [];
       console.log(vm.bookSelected.name);
@@ -44,16 +47,16 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
         vm.chapterList.push({value: i});
       }
     }
+    //The on-change function for UI-SELECT
     vm.changeChapters = function(){
-      console.log('/read/'+vm.bookSelected.name+'/'+vm.chapterSelected);
       $location.path('/read/'+vm.bookSelected.name+'/'+vm.chapterSelected.value);
     }
+    //END UI-SELECT BOOK SEARCH
 
-    //Gets and formats the book from the url
+    //START GET AND FORMAT CHAPTER
     vm.book = $routeParams.book;
     vm.book.replace("%22", " ");
 
-    //console.log(vm.book);
     if(vm.book === 'auto'){
       var args = $cookies.getObject('cookie');
       console.log(args);
@@ -73,6 +76,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       $cookies.putObject('cookie', {book: vm.book, chapter: vm.chapter});
     }
     getVerse();
+    //END GET AND FORMAT CHAPTER
   }
 
   window.myfunction = function(data){
@@ -87,15 +91,15 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       tempHtml = tempHtml.concat('<b>' + data[i].verse + '</b>' + ' ' + data[i].text + ' ');
     }
 
-    //Format the html
+    //FORMAT THE HTML FOR NET API
     tempHtml = tempHtml.replace('&copy;NET', "");
-    tempHtml = tempHtml.replaceAll('<b>', '<p>');
-    tempHtml = tempHtml.replaceAll('</b>', '</p>');
+    tempHtml = tempHtml.replaceAll('<b>', '');
+    tempHtml = tempHtml.replaceAll('</b>', '');
     tempHtml = tempHtml.replaceAll('class="bodytext"', '');
 
     //WILL REPLACE PARAGRAPHS AROUND VERSE NUMBERS IF NEEDED
-    var re = new RegExp(/<p>(\d*)<\/p>/g);
-    var match = re.exec(tempHtml);
+    // var re = new RegExp(/<p>(\d*)<\/p>/g);
+    // var match = re.exec(tempHtml);
     // var i = 0;
     // while(true){
     //   match = re.exec(tempHtml);
@@ -126,6 +130,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     });
   }
 
+  //BUTTON FUNCTIONS
   function next(){
     if( books.chapterList[books.bookList.indexOf(vm.book)] > vm.chapter ){
       $location.path('/read/'+vm.book+'/'+(vm.chapter + 1));
@@ -134,6 +139,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       $location.path('/read/'+(books.bookList[books.bookList.indexOf(vm.book) + 1])+'/'+'1');
     }
   }
+
   function prev(){
     if(vm.chapter === 1){
       $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) - 1]) +'/'+books.chapterList[books.bookList.indexOf(vm.book) - 1]);
@@ -152,6 +158,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.optionButton.color = vm.background.color;
     style.changeBackground(vm.background);
   }
+
   function changeTextSize(newName, newSize){
     vm.p = {
       'name': newName,
@@ -159,5 +166,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     }
     style.setP(vm.p);
   }
+
+  //END BUTTON FUNCTIONS
 
 });

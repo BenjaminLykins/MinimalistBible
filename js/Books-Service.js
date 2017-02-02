@@ -1,3 +1,7 @@
+/*
+ Service for keeping track of the books in the Bible and their lengths
+*/
+
 app.factory('books', [function() {
 
  return {

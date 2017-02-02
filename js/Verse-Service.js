@@ -1,3 +1,7 @@
+/*
+  Factor to get and return chapter data
+*/
+
 app.factory('verse', ['$http', '$q', function($http, $q) {
   return {
     getData: getData,

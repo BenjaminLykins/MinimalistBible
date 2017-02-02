@@ -1,3 +1,7 @@
+/*
+  Service for keeping track of the styles accross pages
+
+*/
 app.factory('style', [function() {
 
   var background = {
