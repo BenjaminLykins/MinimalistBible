@@ -7,7 +7,7 @@
     <div align="left" class="col-sm-6">
       <!-- Possibily replace with mouseover later -->
 
-      <a class="glyphicon glyphicon-search" ng-click="vm.searchExpanded = !vm.searchExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+      <a class="glyphicon custom-button glyphicon-search" ng-click="vm.searchExpanded = !vm.searchExpanded"></a>
 
       <ui-select on-select="vm.countChapters()" ng-change="vm.countChapters" ng-show="vm.searchExpanded" style="display: inline-block; width: 175px !important; top: 6px" ng-model="vm.bookSelected">
           <ui-select-match placeholder="book" style="width: 175px !important">
@@ -66,10 +66,10 @@
       </div> -->
 
       <!-- Settings Icon -->
-      <a class="glyphicon glyphicon-cog" ng-click="vm.settingsExpanded = !vm.settingsExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+      <a class="glyphicon glyphicon-cog custom-button" ng-click="vm.settingsExpanded = !vm.settingsExpanded"></a>
       <!-- Fullscreen Icon -->
-      <a class="glyphicon glyphicon-fullscreen" ng-click="vm.toggleFullScreen()" ng-show="!vm.fullScreen" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
-      <a class="glyphicon glyphicon-resize-small " ng-click="vm.toggleFullScreen()" ng-show="vm.fullScreen" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+      <a class="glyphicon glyphicon-fullscreen custom-button" ng-click="vm.toggleFullScreen()" ng-show="!vm.fullScreen"></a>
+      <a class="glyphicon glyphicon-resize-small custom-button" ng-click="vm.toggleFullScreen()" ng-show="vm.fullScreen"></a>
 
     </div>
     <!-- END SETTINGS -->
@@ -77,15 +77,15 @@
 
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center main-outer-div">
       <div class="main-inner-div" style="padding: 50px">
-        <a ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
+        <a class="glyphicon glyphicon-chevron-left custom-button" ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
         <big ng-style="vm.big">{{vm.book}} {{vm.chapter}}</big>
-        <a ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
+        <a class="glyphicon glyphicon-chevron-right custom-button" ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
 
         <p class="passage-text" ng-bind-html="vm.passage" style="text-align: justify;" ng-style="vm.p">
         </p>
 
-        <a ng-click="vm.prev()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-left"> </a>
-        <a ng-click="vm.next()" style="padding: 15px; text-decoration: none" class="glyphicon glyphicon-chevron-right"> </a>
+        <a class="glyphicon glyphicon-chevron-left custom-button" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
+        <a class="glyphicon glyphicon-chevron-right custom-button" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
 
       </div>
     </div>
