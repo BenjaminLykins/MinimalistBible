@@ -68,7 +68,8 @@
       <!-- Settings Icon -->
       <a class="glyphicon glyphicon-cog" ng-click="vm.settingsExpanded = !vm.settingsExpanded" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
       <!-- Fullscreen Icon -->
-      <a class="glyphicon glyphicon glyphicon-fullscreen" ng-click="vm.toggleFullScreen()" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+      <a class="glyphicon glyphicon-fullscreen" ng-click="vm.toggleFullScreen()" ng-show="!vm.fullScreen" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
+      <a class="glyphicon glyphicon-resize-small " ng-click="vm.toggleFullScreen()" ng-show="vm.fullScreen" style="cursor: pointer; cursor: hand; padding: 20px 20px 0px 0px; "></a>
 
     </div>
     <!-- END SETTINGS -->

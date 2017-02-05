@@ -15,6 +15,8 @@ app.factory('style', [function() {
     'font-size': '16px',
   };
 
+  var fullScreen = 0;
+
   function changeBackground(newBackground){
     background = newBackground;
   }
@@ -31,10 +33,19 @@ app.factory('style', [function() {
     return p;
   }
 
+  function setFullScreen(newFullScreen){
+    fullScreen = newFullScreen;
+  }
+  function getFullScreen(){
+    return fullScreen;
+  }
+
   return {
     changeBackground: changeBackground,
     getBackground: getBackground,
     setP: setP,
-    getP: getP
+    getP: getP,
+    setFullScreen: setFullScreen,
+    getFullScreen: getFullScreen,
   };
 }]);
