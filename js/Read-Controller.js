@@ -5,7 +5,8 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.next = next;
   vm.prev = prev;
   vm.changeBackground = changeBackground;
-  vm.changeTextSize = changeTextSize
+  vm.changeTextSize = changeTextSize;
+  vm.toggleFullScreen = toggleFullScreen;
   vm.passage = $sce.trustAsHtml("loading...");
 
   String.prototype.replaceAll = function(str1, str2, ignore)
@@ -30,6 +31,10 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.searchExpanded = 0;
     vm.settingsExpanded = 0;
     vm.version = 'NET';
+
+    //Fullscreen variable
+    //vm.fullScreen = 0;
+    vm.fullScreen = style.getFullScreen();
 
     //START UI-SELECT BOOK SEARCH
     vm.bookList = [];
@@ -165,6 +170,14 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       'font-size': newSize
     }
     style.setP(vm.p);
+  }
+
+  //Toggle fullScreen
+  function toggleFullScreen(){
+    $(".navbar").slideToggle(0,"linear");
+    $(".footer").slideToggle(0,"linear");
+    vm.fullScreen = !vm.fullScreen;
+    style.setFullScreen(vm.fullScreen);
   }
 
   //END BUTTON FUNCTIONS
