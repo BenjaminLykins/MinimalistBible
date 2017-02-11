@@ -1,6 +1,6 @@
 var app = angular.module('Main-App', ['ngRoute', 'ngCookies', 'ui.select', 'ngSanitize']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         // route for the home page
         .when('/', {
@@ -29,5 +29,5 @@ app.config(function($routeProvider) {
           templateUrl: 'pages/errorpage.html'
         });
 
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 });
