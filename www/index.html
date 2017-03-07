@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<!-- TODO: Add cover screen (take away header) option, make arrow keys change chapter -->
+<!-- TODO: make arrow keys change chapter -->
+<!-- TODO: Hover buttons for read page-->
+<!-- TODO: -->
 <head>
   <title>The Minimalist Bible</title>
   <meta charset="utf-8">
@@ -15,6 +17,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="media/easter-holy-bible-icon.png" />
 
+  <!-- Firebase -->
   <!-- <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script> -->
   <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
@@ -30,12 +33,16 @@
     firebase.initializeApp(config);
   </script>
 
+  <!-- Angular -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.1/angular-sanitize.min.js"></script>
-
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-cookies.js"></script>
+
+  <!-- Jquery  -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   <!-- ui-select -->
@@ -58,9 +65,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/#/">Home</a></li>
-        <li><a href="/#/about">About</a></li>
-        <li><a href="/#/read/auto" ng-click="">Read</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/read/auto">Read</a></li>
       </ul>
     </div>
   </div>
