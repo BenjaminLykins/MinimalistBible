@@ -4,8 +4,7 @@
 
 app.factory('verse', ['$http', '$q', function($http, $q) {
   return {
-    getData: getData,
-    getData3: getData3
+    database: database
   };
 
   var database = firebase.database();
