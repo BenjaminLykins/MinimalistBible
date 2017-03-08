@@ -1,4 +1,4 @@
-app.controller('Read-Controller', function($routeParams, verse, books, $sce, $location, $http, $cookies, $cookieStore, style){
+app.controller('Read-Controller', function($routeParams, verse, books, $sce, $location, $http, $cookies, $cookieStore, style, $scope){
   var vm = this;
   vm.getVerse = getVerse;
   vm.init = init;
@@ -58,6 +58,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     }
     //END UI-SELECT BOOK SEARCH
 
+
     //START GET AND FORMAT CHAPTER
     vm.book = $routeParams.book;
     vm.book.replace("%22", " ");
@@ -84,54 +85,13 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     //END GET AND FORMAT CHAPTER
   }
 
-  window.myfunction = function(data){
-    //console.log(data);
-    //If the chapter doesn't exist
-    if(data[0].chapter != vm.chapter){
-      $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) + 1]) +'/'+'1');
-      return;
-    }
-    var tempHtml = "";
-    for(var i = 0; i < data.length; i++){
-      tempHtml = tempHtml.concat('<b>' + data[i].verse + '</b>' + ' ' + data[i].text + ' ');
-    }
-
-    //FORMAT THE HTML FOR NET API
-    tempHtml = tempHtml.replace('&copy;NET', "");
-    tempHtml = tempHtml.replaceAll('<b>', '');
-    tempHtml = tempHtml.replaceAll('</b>', '');
-    tempHtml = tempHtml.replaceAll('class="bodytext"', '');
-
-    //WILL REPLACE PARAGRAPHS AROUND VERSE NUMBERS IF NEEDED
-    // var re = new RegExp(/<p>(\d*)<\/p>/g);
-    // var match = re.exec(tempHtml);
-    // var i = 0;
-    // while(true){
-    //   match = re.exec(tempHtml);
-    //   if(match == null){
-    //     break;
-    //   }
-    //   tempHtml = tempHtml.replace(re, '$1');
-    //   i++;
-    //   if(i > 99){
-    //     console.log("didn't work");
-    //     break;
-    //   }
-    // }
-
-    vm.passage = $sce.trustAsHtml(tempHtml);
-  }
-
   function getVerse(){
-    $http({
-      method: 'jsonp',
-      url: '//labs.bible.org/api/',
-      params: {
-        passage: vm.book + '+' + vm.chapter,
-        formatting: 'para',
-        type: 'json',
-        callback: 'myfunction'
-      }
+    //var database = firebase.database();
+    database = verse.database; //Gets the firebase database instance from the verse service
+    return firebase.database().ref('/Versions/NET/' + vm.book + '/' + vm.chapter).once('value').then(function(snapshot) {
+      var test = snapshot.val();
+      vm.passage = $sce.trustAsHtml(test);
+      $scope.$apply();
     });
   }
 
