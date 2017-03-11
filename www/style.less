@@ -27,11 +27,24 @@ p {
         box-shadow: 0 -8px 6px -6px gray;
 }
 
-.footer-background {
-    background-color: #2f3034;
-    //background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+.footer {
+  background-color: #546E7A;
+  color: #ffffff;
+  padding: 50px 50px;
+  font-size: 16px;
+  font-family: muli;
+  a{
+    color: white;
+    cursor: pointer;
+    //cursor: hand;
+  }
+  a:hover{
+    color: #E0E0E0;
+    text-decoration: none;
+  }
 }
+
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -49,6 +62,11 @@ p {
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
+.navbar-brand{
+  cursor: pointer;
+}
+
+
 .main-background {
   background: #D8D8D8; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, #D8D8D8, #787878); /* For Safari 5.1 to 6.0 */
@@ -56,6 +74,169 @@ p {
   background: -moz-linear-gradient(bottom right, #D8D8D8, #787878); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #D8D8D8, #787878  ); /* Standard syntax */
 }
+
+
+// ------------------- Main Page ------------------------
+
+// Row 1
+.main-row-1 {
+  font-family: muli;
+  background-color: #263238;
+	box-shadow: 0 3px 2px 0 rgba(54, 70, 79, 0.59);
+  padding: 150px 0px 150px 0px;
+}
+.custom-hr
+{
+  height: 1px;
+  background-color: #E0E0E0;
+}
+
+.main-inner-div {
+  font-size: 72px;
+  text-align: left;
+  line-height: 90px;
+  color: #e0e0e0;
+  vertical-align: middle;
+
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+// row 2
+.main-row-2{
+  background-color: #EEEEEE;
+  padding: 150px 0px 150px 0px;
+}
+.main-inner-div-2{
+  font-size: 20px;
+  text-align: center;
+  line-height: 76px;
+  color: #000000;
+  div{
+    padding: 25px 0px;
+  }
+}
+
+.read-button{
+  background-color: #2196f3;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border: solid 1px #9b9b9b;
+  color: white;
+  padding: 10px 25px;
+  font-size: 20px;
+  font-family: muli;
+}
+
+.read-button:hover{
+  background-color: #1976D2;
+  color: white;
+}
+
+//Row 3
+.main-row-3{
+  padding: 75px 200px;
+  background-color: #263238;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.main-inner-div-3{
+  line-height: 35px;
+  h3{
+    color: white;
+    font-family: muli;
+  }
+  p{
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    a{
+      color: #2196f3;
+    }
+    a:hover{
+      color: #1976D2;
+      text-decoration: none;
+    }
+  }
+}
+
+// ------------------- About Page ------------------------
+
+.about-page{
+  text-align: left;
+  font-weight: 300;
+  p{
+    font-size: 16px;
+    line-height: 30px;
+  }
+  h1{
+    font-size: 36px;
+  }
+}
+
+.about-row-1{
+  background-color: #D8D8D8;
+  color: #000000;
+  padding: 200px 0px;
+}
+
+.about-inner-row-1{
+  vertical-align: middle;
+  hr{
+    height: 1px;
+    background-color: #000000;
+  }
+}
+
+.about-row-2{
+  background-color: #282828;
+  color: #FFFFFF;
+  padding: 200px 0px;
+}
+
+.about-inner-row-2{
+  vertical-align: middle;
+  hr{
+    height: 1px;
+    background-color: #FFFFFF;
+  }
+}
+
+// READ PAGE
+.read-arrow{
+  font-size: 25px;
+}
+
+
+
+//-----------END READ PAGE--------------------------
+
+
+//----------ERROR PAGE------------------------------
+.error-page-row-1{
+  background-color: #455A64;
+  padding: 200px 0px;
+}
+
+//For all icon buttons
+.custom-button{
+  cursor: pointer;
+  cursor: hand;
+  font-size: 20px;
+  padding: 20px 20px 0px 0px;
+}
+
+.custom-button:hover{
+  text-decoration: none;
+}
+
+
+
+
 .about-background {
   background: #B8B8B8 ; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, #606060, #909090); /* For Safari 5.1 to 6.0 */
@@ -63,15 +244,7 @@ p {
   background: -moz-linear-gradient(bottom right, #606060, #909090); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, #606060, #909090); /* Standard syntax */
 }
-.read-background {
-  // Now defined in ng-style in contorller/view
-  background: #B8B8B8 ; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, #C8C8C8 , #FFFFFF); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, #C8C8C8 , #FFFFFF); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, #C8C8C8 , #FFFFFF); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, #C8C8C8 , #FFFFFF ); /* Standard syntax */
-  color: #282828 ;
-}
+
 .error-background {
   background: #B8B8B8 ; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left top, #606060, #909090); /* For Safari 5.1 to 6.0 */
@@ -82,10 +255,6 @@ p {
 .main-outer-div {
   height: 600px;
   display: table;
-}
-.main-inner-div {
-  display: table-cell;
-  vertical-align: middle;
 }
 .main-image {
   width: 100px;
@@ -109,15 +278,4 @@ p {
 
 .ui-select-search{
   max-width: 100% !important;
-}
-
-//For all icon buttons
-.custom-button{
-  cursor: pointer;
-  cursor: hand;
-  padding: 20px 20px 0px 0px;
-}
-
-.custom-button:hover{
-  text-decoration: none;
 }

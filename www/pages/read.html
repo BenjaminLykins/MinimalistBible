@@ -7,6 +7,7 @@
     <div align="left" class="col-sm-6">
       <!-- Possibily replace with mouseover later -->
 
+      <!-- SEARCH -->
       <a class="glyphicon custom-button glyphicon-search" ng-click="vm.searchExpanded = !vm.searchExpanded"></a>
 
       <ui-select on-select="vm.countChapters()" ng-change="vm.countChapters" ng-show="vm.searchExpanded" style="display: inline-block; width: 175px !important; top: 6px" ng-model="vm.bookSelected">
@@ -76,16 +77,16 @@
   </div>
 
     <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center main-outer-div">
-      <div class="main-inner-div" style="padding: 50px">
-        <a class="glyphicon glyphicon-chevron-left custom-button" ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
+      <div class="" style="padding: 50px">
+        <a class="glyphicon glyphicon-chevron-left custom-button read-arrow" ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
         <big ng-style="vm.big">{{vm.book}} {{vm.chapter}}</big>
-        <a class="glyphicon glyphicon-chevron-right custom-button" ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
+        <a class="glyphicon glyphicon-chevron-right custom-button read-arrow" ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
 
         <p class="passage-text" ng-bind-html="vm.passage" style="text-align: justify;" ng-style="vm.p">
         </p>
 
-        <a class="glyphicon glyphicon-chevron-left custom-button" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
-        <a class="glyphicon glyphicon-chevron-right custom-button" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
+        <a class="glyphicon glyphicon-chevron-left custom-button read-arrow" ng-hide="vm.book === 'Genesis' && vm.chapter === 1" ng-click="vm.prev()" style="padding: 15px; text-decoration: none"> </a>
+        <a class="glyphicon glyphicon-chevron-right custom-button read-arrow" ng-hide="vm.book === 'Revelation' && vm.chapter === 22" ng-click="vm.next()" style="padding: 15px; text-decoration: none"> </a>
 
       </div>
     </div>

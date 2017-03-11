@@ -1,25 +1,43 @@
 <div ng-controller="Main-Controller as vm" data-ng-init="vm.init()">
-  <div class="row main-background">
-    <div class="col-sm-12 text-center main-outer-div">
-      <div class="main-inner-div">
-        <big><big><big>The Minimalist Bible</big></big></big>
-        <img class="main-image" src="media/easter-holy-bible-icon.png" class="img-responsive img-rounded" alt="the bible">
-        <p style="padding-top: 15px"> No adds &middot; No passwords &middot; No payments &middot; No subscriptions &middot; No 30-day trial
-        </p>
-        <p> Just the Bible </p>
+
+    <div class="row main-row-1 shadow-bottom">
+      <div class="col-sm-12 text-center">
+        <div class="main-inner-div vcenter">
+          The<br>Minimalist<br>Bible
+          <hr class="custom-hr">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- First Container -->
+    <div class="row main-row-2">
+      <div class="col-sm-12 text-center">
+        <div class="main-inner-div-2 vcenter">
+          <div>The simple, online Bible-reading application with
+            <span id="content-1"> no adds</span>
+            <span id="content-2"> no passwords</span>
+            <span id="content-3"> no distractions</span>
+            <span id="content-4"> no logins</span>
+            <span id="content-5"> no 30-day free trial</span>
+          </div>
 
-  <div class="container-fluid bg-lightgray text-center shadow-top">
-    <div class="col-sm-8 col-sm-offset-2" style="padding-top: 15px">
-    <h3> &middot; Old Testament &middot; </h3>
-    <p> &middot; <span ng-repeat="book in vm.oldTest"> <a href="/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
-    <h3> &middot; New Testament &middot; </h3>
-    <p> &middot; <span ng-repeat="book in vm.newTest"> <a href="/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
+          <div>Just the Bible</div>
+          <div><a href="/read/auto" type="button" class="btn read-button">Start Reading</a></div>
+        </div>
+      </div>
     </div>
-  </div>
 
-</div>
+
+
+    <!-- Row-3 (Book List) -->
+
+    <div class="row main-row-3 text-center">
+      <div class="col-sm-12">
+        <div class="main-inner-div-3 vcenter">
+          <h3> &middot; Old Testament &middot; </h3>
+          <p> &middot; <span ng-repeat="book in vm.oldTest"> <a href="/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
+          <div style="padding: 30px 0px;"></div>
+          <h3> &middot; New Testament &middot; </h3>
+          <p> &middot; <span ng-repeat="book in vm.newTest"> <a href="/read/{{book}}/1"> {{book}} </a> &middot; </span> </p>
+        </div>
+      </div>
+    </div>

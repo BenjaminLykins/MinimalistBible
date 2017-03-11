@@ -9,6 +9,22 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.toggleFullScreen = toggleFullScreen;
   vm.passage = $sce.trustAsHtml("loading...");
 
+  //Left and right click
+  $(document).keydown(function(e){
+    if (e.keyCode == 37) {
+      console.log("ehre")
+       prev();
+       return false;
+    }
+
+    if (e.keyCode == 39) {
+      console.log("ehre")
+      vm.next()
+
+       return false;
+    }
+  });
+
   String.prototype.replaceAll = function(str1, str2, ignore)
   {
     return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
@@ -141,5 +157,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   }
 
   //END BUTTON FUNCTIONS
+
+
 
 });

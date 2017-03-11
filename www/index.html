@@ -61,26 +61,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <span class="navbar-brand">The Minimalist Bible</span>
+      <a href="/" class="navbar-brand">The Minimalist Bible</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <!-- <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/read/auto">Read</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </nav>
 
 <div ng-view> </div>
 
 <!-- Footer -->
-<footer class="footer container-fluid footer-background text-center shadow-top">
-  <!-- <p>Created by Benjamin Lykins </p> -->
-  <p>The Minimalmist Bible &copy; <script>document.write(new Date().getFullYear())</script></p>
-  <p>&copy;NET</p>
+<footer class="footer text-center">
+  <div> <a href="/">Home</a> &nbsp;&middot;&nbsp; <a href="/about">About</a> &nbsp;&middot;&nbsp; <a href="mailto:feedback@theminimalistbible.com">Contact Us</a> <!--&nbsp;&middot;&nbsp; <a href="/blog">Blog</a>--></div>
+  <div>The Minimalmist Bible &copy; <script>document.write(new Date().getFullYear())</script></div>
+  <!-- <p>&copy;NET</p> -->
 </footer>
+
 
 <script src="app.js"></script>
 <script src="js/Main-Controller.js"></script>

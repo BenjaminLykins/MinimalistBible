@@ -6,9 +6,23 @@ app.controller('Main-Controller', function($routeParams, verse) {
      document.title = "The Minimalist Bible";
    }
 
-   function print(){
-     console.log($routeParams.param);
-   }
+//Cycling text
+  var divs = $('span[id^="content-"]').hide(),
+    i = 0;
+  (function cycle() {
+
+      divs.eq(i).fadeIn(400)
+                .delay(2000)
+                .fadeOut(400, cycle);
+
+      i = ++i % divs.length;
+
+  })();
+
+  function print(){
+    console.log($routeParams.param);
+  }
+
 
    vm.oldTest = [
     'Genesis',         'Exodus',          'Leviticus',     'Numbers',
@@ -31,4 +45,7 @@ app.controller('Main-Controller', function($routeParams, verse) {
     '2 Peter',         '1 John',          '2 John',        '3 John',
     'Jude',            'Revelation'
 ];
+
+//vm.cycle();
+
 });
