@@ -9,21 +9,27 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   vm.toggleFullScreen = toggleFullScreen;
   vm.passage = $sce.trustAsHtml("loading...");
 
+  vm.version = 'NET';
+
+  $(".version-copyright").html("&copy; " + vm.version);
+
   //Left and right click
-  $(document).keydown(function(e){
-    if (e.keyCode == 37) {
-      console.log("ehre")
-       prev();
-       return false;
-    }
-
-    if (e.keyCode == 39) {
-      console.log("ehre")
-      vm.next()
-
-       return false;
-    }
-  });
+  // $(document).keydown(function(e){
+  //   if (e.keyCode == 37) {
+  //     console.log("left");
+  //      prev();
+  //      console.log("left");
+  //      return false;
+  //   }
+  //
+  //   if (e.keyCode == 39) {
+  //     console.log("right")
+  //     vm.next();
+  //     console.log("right");
+  //
+  //      return false;
+  //   }
+  // });
 
   String.prototype.replaceAll = function(str1, str2, ignore)
   {
@@ -115,18 +121,22 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
   function next(){
     if( books.chapterList[books.bookList.indexOf(vm.book)] > vm.chapter ){
       $location.path('/read/'+vm.book+'/'+(vm.chapter + 1));
+      $scope.$apply();
     }
     else{
       $location.path('/read/'+(books.bookList[books.bookList.indexOf(vm.book) + 1])+'/'+'1');
+      $scope.$apply();
     }
   }
 
   function prev(){
     if(vm.chapter === 1){
       $location.path('/read/'+ (books.bookList[books.bookList.indexOf(vm.book) - 1]) +'/'+books.chapterList[books.bookList.indexOf(vm.book) - 1]);
+      $scope.$apply();
     }
     else
       $location.path('/read/'+vm.book+'/'+(vm.chapter - 1));
+      $scope.$apply();
   }
 
   //Change options
@@ -155,6 +165,18 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
     vm.fullScreen = !vm.fullScreen;
     style.setFullScreen(vm.fullScreen);
   }
+
+  $(document).keydown(function(e){
+    if (e.keyCode == 37) {
+     prev();
+     return false;
+    }
+
+    if (e.keyCode == 39) {
+      vm.next();
+      return false;
+    }
+  });
 
   //END BUTTON FUNCTIONS
 
