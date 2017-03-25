@@ -85,6 +85,7 @@ app.controller('Read-Controller', function($routeParams, verse, books, $sce, $lo
       vm.chapter = parseInt($routeParams.chapter);
       $cookies.putObject('cookie', {book: vm.book, chapter: vm.chapter});
     }
+    //$(document).prop('title', vm.book + ' ' + vm.chapter);
     getVerse();
     //END GET AND FORMAT CHAPTER
   }
